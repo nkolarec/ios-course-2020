@@ -1,14 +1,14 @@
 //
-//  QuizViewController.swift
+//  QuizListViewController.swift
 //  QuizApp
 //
-//  Created by five on 05/05/2020.
+//  Created by five on 04/05/2020.
 //  Copyright © 2020 Nina Kolarec. All rights reserved.
 //
 
 import UIKit
 
-class QuizViewController: UIViewController {
+class QuizListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
