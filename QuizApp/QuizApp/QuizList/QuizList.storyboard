@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ORK-WA-iXf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZK1-h6-ahB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizViewCell" rowHeight="120" id="L94-wq-esT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="QuizTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Quiz Table View Cell" rowHeight="120" id="L94-wq-esT" customClass="QuizTableViewCell" customModule="QuizApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="354" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L94-wq-esT" id="1fO-GD-WDi">
@@ -107,11 +107,18 @@
                                                 <constraint firstAttribute="trailing" secondItem="VQe-AF-AB1" secondAttribute="trailing" constant="10" id="yxb-Ot-RdH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hideQuizImage" destination="S8T-9e-EoL" id="RXy-8R-alk"/>
+                                            <outlet property="quizDescription" destination="VQe-AF-AB1" id="gLR-9F-mMq"/>
+                                            <outlet property="quizDifficulty" destination="pIJ-yo-5jD" id="3yX-SG-yeY"/>
+                                            <outlet property="quizImage" destination="Vg9-oz-3Xu" id="fEx-Kb-oDd"/>
+                                            <outlet property="quizTitle" destination="gKj-cI-QA7" id="BCd-jF-MSo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-gf-ZJw">
-                                <rect key="frame" x="40" y="64" width="344" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-gf-ZJw">
+                                <rect key="frame" x="40" y="108" width="344" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fun fact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3C-md-CVh">
                                         <rect key="frame" x="0.0" y="0.0" width="66" height="40"/>
@@ -120,15 +127,31 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-Vg-PcN">
-                                        <rect key="frame" x="266" y="0.0" width="78" height="40"/>
+                                        <rect key="frame" x="127" y="0.0" width="116" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GNt-TX-V0c"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Upload">
+                                        <state key="normal" title="Load">
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="load:" destination="ORK-WA-iXf" eventType="touchUpInside" id="BP7-m5-5US"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2H-b5-gy6">
+                                        <rect key="frame" x="304" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="xWZ-4p-Ivo"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Log Out" image="power" catalog="system">
+                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logout:" destination="ORK-WA-iXf" eventType="touchUpInside" id="b9n-Tg-ii8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -144,10 +167,36 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xPI-ZV-WM2"/>
                     </view>
+                    <navigationItem key="navigationItem" id="pjx-Hg-eB2"/>
+                    <connections>
+                        <outlet property="funFactLabel" destination="q3C-md-CVh" id="DVU-Vh-aV7"/>
+                        <outlet property="quizListTableView" destination="ixb-l1-cGe" id="tn7-vK-qnP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agq-zt-0XY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="97.767857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kie-ou-Yfm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZK1-h6-ahB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WKT-Bn-x2x">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ORK-WA-iXf" kind="relationship" relationship="rootViewController" id="gZO-Tm-pbJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tuH-Dx-7TF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="power" catalog="system" width="128" height="124"/>
+    </resources>
 </document>

@@ -10,21 +10,31 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
+    //MARK: - Properties
+    private let userDefaults = UserDefaults.standard
+    private let token = "token"
+    private let user_id = "user_id"
+    private var user : User!
+    
+    
+    //MARK: - Private UI
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
     
-    private let userDefaults = UserDefaults.standard
-    private weak var user : User!
     
+    
+    //MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 5
+        
         if _isUserLoggedIn() {
             _switchScreen()
         }
     }
     
+    //MARK: - Actions
     @IBAction func login(_ sender: UIButton) {
         guard
             let username = usernameTextField.text,
@@ -42,18 +52,18 @@ final class LoginViewController: UIViewController {
 //MARK: - Login user session
 extension LoginViewController {
     private func _isUserLoggedIn() -> Bool {
-        let token = userDefaults.object(forKey: "token") as? String
-        return  token == nil ? false : true
+        let tokenExists = userDefaults.object(forKey: token) as? String
+        return  tokenExists == nil ? false : true
     }
     
     private func _loginUser(username: String, password: String) {
         let userService = UserService()
         userService.loginUser(username: username, password: password) { (result) in
             DispatchQueue.main.async {
-                self.user = result
-                if self.user != nil {
-                    self.userDefaults.set(self.user.token, forKey: "token")
-                    print(self.user.token)
+                if result != nil {
+                    self.user = result
+                    self.userDefaults.set(self.user.user_id, forKey: self.user_id)
+                    self.userDefaults.set(self.user.token, forKey: self.token)
                     self._switchScreen()
                 } else {
                     self._showAlert(title: "Login Error", message: "Failed to login.")
@@ -63,7 +73,7 @@ extension LoginViewController {
     }
 }
 
-//MARK: - Transition to a new screen
+//MARK: - Navigation
 extension LoginViewController {
     private func _switchScreen() {
         let bundle = Bundle.main
@@ -82,5 +92,14 @@ extension UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(cancelAction)
         present(alert, animated: true)
+    }
+}
+
+//MARK: - Animation
+extension LoginViewController {
+    private func _animate() {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }

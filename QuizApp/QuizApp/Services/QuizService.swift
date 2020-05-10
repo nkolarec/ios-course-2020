@@ -1,30 +1,22 @@
 //
-//  UserService.swift
+//  QuizService.swift
 //  QuizApp
 //
-//  Created by five on 07/05/2020.
+//  Created by five on 08/05/2020.
 //  Copyright © 2020 Nina Kolarec. All rights reserved.
 //
 
 import Foundation
 
-final class UserService {
-    func loginUser(username: String, password: String, completion: @escaping ((User?) -> Void)) {
+final class QuizService {
+    func loadQuizList(completion: @escaping (([Quiz]?) -> Void)) {
         
-        guard let loginURL = URL(string: "https://iosquiz.herokuapp.com/api/session")
+        //MARK: - Returns nil when making url from string source and quizzes cannot load
+        guard let quizzesURL = URL(string: "​https://iosquiz.herokuapp.com/api/quizzes")
         else { return completion(nil) }
         
-        let parameters: [String : String] = ["username": username, "password": password]
-        var request = URLRequest(url: loginURL)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        do {
-        request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-            return completion(nil)
-        }
-        
+        var request = URLRequest(url: quizzesURL)
+        request.httpMethod = "GET"
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
             guard let data = data,
@@ -41,10 +33,9 @@ final class UserService {
                 return completion(nil)
             }
             do {
-                // create user from json data
-                let user = try JSONDecoder().decode(User.self, from: data)
-                print("Logged in user with user_id: \(user.user_id) and token: \(user.token)")
-                return completion(user)
+                let quizzes = try JSONDecoder().decode(QuizList.self, from: data)
+                print(quizzes.quizList)
+                return completion(quizzes.quizList)
             } catch {
                 print(error.localizedDescription)
                 return completion(nil)
