@@ -76,8 +76,7 @@ extension LoginViewController {
 //MARK: - Navigation
 extension LoginViewController {
     private func _switchScreen() {
-        let bundle = Bundle.main
-        let storyboard = UIStoryboard(name: "QuizList", bundle: bundle)
+        let storyboard = UIStoryboard(name: "QuizList", bundle: nil)
         let viewController = storyboard.instantiateViewController(
             withIdentifier: "QuizListViewController"
         ) as! QuizListViewController
@@ -98,8 +97,5 @@ extension UIViewController {
 //MARK: - Animation
 extension LoginViewController {
     private func _animate() {
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
     }
 }
