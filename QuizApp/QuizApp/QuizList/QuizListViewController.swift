@@ -55,7 +55,7 @@ extension QuizListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("CURRENT INDEX PATH BEING CONFIGURED: \(indexPath)")
-        let cell = quizListTableView.dequeueReusableCell(withIdentifier: "QuizTableViewCell") as! QuizTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuizTableViewCell.self), for: indexPath) as! QuizTableViewCell
         cell.configure(quiz: quizzes[indexPath.row])
         return cell
     }

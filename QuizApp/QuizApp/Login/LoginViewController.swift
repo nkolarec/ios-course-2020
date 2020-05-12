@@ -76,7 +76,8 @@ extension LoginViewController {
 //MARK: - Navigation
 extension LoginViewController {
     private func _switchScreen() {
-        let storyboard = UIStoryboard(name: "QuizList", bundle: nil)
+        let bundle = Bundle.main
+        let storyboard = UIStoryboard(name: "QuizList", bundle: bundle)
         let viewController = storyboard.instantiateViewController(
             withIdentifier: "QuizListViewController"
         ) as! QuizListViewController

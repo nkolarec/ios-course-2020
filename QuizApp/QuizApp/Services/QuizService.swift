@@ -11,8 +11,7 @@ import Foundation
 final class QuizService {
     func loadQuizList(completion: @escaping (([Quiz]?) -> Void)) {
         
-        //MARK: - Returns nil when making url from string source and quizzes cannot load
-        guard let quizzesURL = URL(string: "​https://iosquiz.herokuapp.com/api/quizzes")
+        guard let quizzesURL = URL(string: "https://iosquiz.herokuapp.com/api/quizzes")
         else { return completion(nil) }
         
         var request = URLRequest(url: quizzesURL)
