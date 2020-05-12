@@ -15,7 +15,7 @@ final class QuizTableViewCell: UITableViewCell {
     @IBOutlet private weak var quizTitle: UILabel!
     @IBOutlet private weak var hideQuizImage: UIView!
     @IBOutlet private weak var quizDescription: UITextView!
-    @IBOutlet private weak var quizLevel: UILabel!
+    @IBOutlet weak var quizLevel: UILabel!
     
     //MARK: - Lifecycle methods
     override func awakeFromNib() {

@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="QuizTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Quiz Table View Cell" rowHeight="120" id="L94-wq-esT" customClass="QuizTableViewCell" customModule="QuizApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="QuizTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizTableViewCell" rowHeight="120" id="L94-wq-esT" customClass="QuizTableViewCell" customModule="QuizApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="354" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L94-wq-esT" id="1fO-GD-WDi">
@@ -37,8 +37,8 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKj-cI-QA7">
-                                                    <rect key="frame" x="128" y="8" width="77" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKj-cI-QA7">
+                                                    <rect key="frame" x="128" y="8" width="105" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -81,6 +81,9 @@
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* * *" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIJ-yo-5jD">
                                                     <rect key="frame" x="267.5" y="8" width="66.5" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="66.5" id="5cA-dS-nMw"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                     <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -94,6 +97,7 @@
                                                 <constraint firstItem="Vg9-oz-3Xu" firstAttribute="top" secondItem="1fO-GD-WDi" secondAttribute="top" constant="8" id="EM2-Wy-TKw"/>
                                                 <constraint firstItem="VQe-AF-AB1" firstAttribute="top" secondItem="gKj-cI-QA7" secondAttribute="bottom" constant="8" id="LQh-S8-FnI"/>
                                                 <constraint firstAttribute="bottom" secondItem="Vvn-BV-kcv" secondAttribute="bottom" id="Pyr-X5-ekB"/>
+                                                <constraint firstItem="pIJ-yo-5jD" firstAttribute="leading" secondItem="gKj-cI-QA7" secondAttribute="trailing" constant="34.5" id="REA-p9-0TY"/>
                                                 <constraint firstItem="pIJ-yo-5jD" firstAttribute="top" secondItem="1fO-GD-WDi" secondAttribute="topMargin" constant="-3" id="RJ0-x7-yON"/>
                                                 <constraint firstItem="Vvn-BV-kcv" firstAttribute="top" secondItem="pIJ-yo-5jD" secondAttribute="bottom" constant="75" id="RPH-gO-y4S"/>
                                                 <constraint firstItem="pIJ-yo-5jD" firstAttribute="trailing" secondItem="1fO-GD-WDi" secondAttribute="trailingMargin" id="WZR-qR-yrl"/>
@@ -101,6 +105,7 @@
                                                 <constraint firstItem="Vvn-BV-kcv" firstAttribute="top" secondItem="S8T-9e-EoL" secondAttribute="bottom" constant="10" id="bpz-nE-4A2"/>
                                                 <constraint firstItem="S8T-9e-EoL" firstAttribute="top" secondItem="1fO-GD-WDi" secondAttribute="top" constant="9" id="cpK-Ln-RWZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="Vvn-BV-kcv" secondAttribute="trailing" constant="10" id="eiL-DU-M9D"/>
+                                                <constraint firstAttribute="trailing" secondItem="pIJ-yo-5jD" secondAttribute="trailing" constant="20" id="hpG-jA-tiK"/>
                                                 <constraint firstItem="S8T-9e-EoL" firstAttribute="leading" secondItem="1fO-GD-WDi" secondAttribute="leading" constant="20" id="nSi-9n-uU1"/>
                                                 <constraint firstItem="Vvn-BV-kcv" firstAttribute="top" secondItem="Vg9-oz-3Xu" secondAttribute="bottom" constant="8" id="rMe-i7-9M3"/>
                                                 <constraint firstItem="gKj-cI-QA7" firstAttribute="leading" secondItem="S8T-9e-EoL" secondAttribute="trailing" constant="8" id="sa4-wn-gHv"/>
@@ -110,8 +115,8 @@
                                         <connections>
                                             <outlet property="hideQuizImage" destination="S8T-9e-EoL" id="RXy-8R-alk"/>
                                             <outlet property="quizDescription" destination="VQe-AF-AB1" id="gLR-9F-mMq"/>
-                                            <outlet property="quizDifficulty" destination="pIJ-yo-5jD" id="3yX-SG-yeY"/>
                                             <outlet property="quizImage" destination="Vg9-oz-3Xu" id="fEx-Kb-oDd"/>
+                                            <outlet property="quizLevel" destination="pIJ-yo-5jD" id="9dV-SH-n9E"/>
                                             <outlet property="quizTitle" destination="gKj-cI-QA7" id="BCd-jF-MSo"/>
                                         </connections>
                                     </tableViewCell>
