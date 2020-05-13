@@ -18,20 +18,19 @@ final class LoginViewController: UIViewController {
     
     
     //MARK: - Private UI
+    @IBOutlet weak var quizTitleLabel: UILabel!
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
-    
-    
     
     //MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 5
-        
         if _isUserLoggedIn() {
             _switchScreen()
         }
+        _animate()
     }
     
     //MARK: - Actions
@@ -98,5 +97,19 @@ extension UIViewController {
 //MARK: - Animation
 extension LoginViewController {
     private func _animate() {
-    }
+        self.quizTitleLabel.font = self.quizTitleLabel.font.withSize(10)
+        self.usernameTextField.center = CGPoint(x: -300, y: 80)
+        self.passwordTextField.center = CGPoint(x: -300, y: 128)
+        self.loginButton.center = CGPoint(x: -300, y: 189)
+        UIView.animate(withDuration: 4.0,
+            delay: 0.0,
+            usingSpringWithDamping: 1.0,
+            initialSpringVelocity: 0,
+            options: .curveEaseIn,
+            animations: ({
+                self.quizTitleLabel.font = self.quizTitleLabel.font.withSize(35)
+                self.usernameTextField.center = CGPoint(x: 0, y: 80)
+                self.passwordTextField.center = CGPoint(x: 0, y: 128)
+                self.loginButton.center = CGPoint(x: 0, y: 189)
+            }), completion: nil)}
 }
