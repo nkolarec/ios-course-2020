@@ -97,17 +97,17 @@ extension UIViewController {
 //MARK: - Animation
 extension LoginViewController {
     private func _animate() {
-        self.quizTitleLabel.font = self.quizTitleLabel.font.withSize(10)
+        self.quizTitleLabel.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
         self.usernameTextField.center = CGPoint(x: -300, y: 80)
-        self.passwordTextField.center = CGPoint(x: -300, y: 128)
-        self.loginButton.center = CGPoint(x: -300, y: 189)
-        UIView.animate(withDuration: 4.0,
+        self.passwordTextField.center = CGPoint(x: -400, y: 128)
+        self.loginButton.center = CGPoint(x: -500, y: 189)
+        UIView.animate(withDuration: 3.0,
             delay: 0.0,
             usingSpringWithDamping: 1.0,
             initialSpringVelocity: 0,
-            options: .curveEaseIn,
+            options: .curveEaseOut,
             animations: ({
-                self.quizTitleLabel.font = self.quizTitleLabel.font.withSize(35)
+                self.quizTitleLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.usernameTextField.center = CGPoint(x: 0, y: 80)
                 self.passwordTextField.center = CGPoint(x: 0, y: 128)
                 self.loginButton.center = CGPoint(x: 0, y: 189)
