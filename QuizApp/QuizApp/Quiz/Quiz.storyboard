@@ -10,7 +10,7 @@
         <!--Quiz-->
         <scene sceneID="jQM-Eu-Mpu">
             <objects>
-                <viewController title="Quiz" id="aSs-Ts-nea" customClass="QuizViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuizViewController" title="Quiz" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aSs-Ts-nea" customClass="QuizViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uLp-uC-Nmv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                                         <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yY1-iI-yfJ">
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yY1-iI-yfJ">
                                         <rect key="frame" x="77" y="48" width="220" height="116"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="116" id="6uZ-oz-ZFb"/>
@@ -47,7 +47,24 @@
                                         <state key="normal" title="Start Quiz">
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startQuiz:" destination="aSs-Ts-nea" eventType="touchUpInside" id="OIh-aR-6dp"/>
+                                        </connections>
                                     </button>
+                                    <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJu-qd-KTK">
+                                        <rect key="frame" x="77" y="48" width="220" height="116"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image not available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWk-sg-RQe">
+                                                <rect key="frame" x="26" y="46" width="168" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -73,6 +90,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bcK-zp-KAg"/>
                     </view>
+                    <connections>
+                        <outlet property="hiddenImageView" destination="tJu-qd-KTK" id="1rx-7z-QeV"/>
+                        <outlet property="quizImage" destination="yY1-iI-yfJ" id="5Eo-kQ-CzF"/>
+                        <outlet property="quizTitle" destination="T2Z-cM-GVw" id="Hba-K1-olS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqs-rt-kmD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

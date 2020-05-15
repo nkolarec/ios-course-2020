@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Quiz: Codable {
     let quiz_id: Int

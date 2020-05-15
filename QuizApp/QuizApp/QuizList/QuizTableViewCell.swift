@@ -15,12 +15,11 @@ final class QuizTableViewCell: UITableViewCell {
     @IBOutlet private weak var quizTitle: UILabel!
     @IBOutlet private weak var hideQuizImage: UIView!
     @IBOutlet private weak var quizDescription: UITextView!
-    @IBOutlet weak var quizLevel: UILabel!
+    @IBOutlet private weak var quizLevel: UILabel!
     
     //MARK: - Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func prepareForReuse() {
@@ -50,6 +49,7 @@ extension QuizTableViewCell {
     }
 }
 
+//MARK: - Load image session
 extension QuizTableViewCell {
     private func _loadImage(url: URL) {
         let quizService = QuizService()
