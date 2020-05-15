@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class QuizService {
     func loadQuizList(completion: @escaping (([Quiz]?) -> Void)) {
@@ -39,6 +40,30 @@ final class QuizService {
                 print(error.localizedDescription)
                 return completion(nil)
             }
+        }
+        task.resume()
+    }
+    
+    func loadImage(url: URL, completion: @escaping ((UIImage?) -> Void)) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {
+                // check for fundamental networking error
+                print("error", error ?? "Unknown error")
+                return completion(nil)
+            }
+            guard (200 ... 299) ~= response.statusCode else {
+                // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return completion(nil)
+            }
+            let image =  UIImage(data: data)
+            return completion(image)
         }
         task.resume()
     }

@@ -26,10 +26,10 @@ final class LoginViewController: UIViewController {
     //MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginButton.layer.cornerRadius = 5
         if _isUserLoggedIn() {
             _switchScreen()
         }
+        loginButton.layer.cornerRadius = 5
         _animate()
     }
     

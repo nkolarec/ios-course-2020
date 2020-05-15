@@ -46,6 +46,21 @@ extension QuizTableViewCell {
         }
         stars.removeLast()
         quizLevel.text = stars
-        
+        _loadImage(url: quiz.imageURL)
+    }
+}
+
+extension QuizTableViewCell {
+    private func _loadImage(url: URL) {
+        let quizService = QuizService()
+        quizService.loadImage(url: url) { (result) in
+            DispatchQueue.main.async {
+                if result != nil {
+                    self.quizImage.image = result!
+                    self.quizImage.isHidden = false
+                    self.hideQuizImage.isHidden = true
+                }
+            }
+        }
     }
 }
