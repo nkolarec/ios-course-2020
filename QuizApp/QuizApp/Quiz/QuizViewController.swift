@@ -23,6 +23,7 @@ final class QuizViewController: UIViewController {
         super.viewDidLoad()
         quizTitle.text = quiz?.title
         _loadImage(url: quiz?.imageURL)
+        
     }
     
     //MARK: - Actions

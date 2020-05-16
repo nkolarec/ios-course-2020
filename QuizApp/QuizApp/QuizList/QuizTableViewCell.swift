@@ -46,6 +46,13 @@ extension QuizTableViewCell {
         stars.removeLast()
         quizLevel.text = stars
         _loadImage(url: quiz.imageURL)
+        if quiz.category == "SCIENCE" {
+            self.contentView.backgroundColor = UIColor.lightGray
+            quizDescription.backgroundColor = UIColor.lightGray
+        } else {
+            self.contentView.backgroundColor = UIColor.systemIndigo
+            quizDescription.backgroundColor = UIColor.systemIndigo
+        }
     }
 }
 
