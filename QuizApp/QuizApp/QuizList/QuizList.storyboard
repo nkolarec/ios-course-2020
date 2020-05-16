@@ -126,17 +126,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-gf-ZJw">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-gf-ZJw">
                                 <rect key="frame" x="40" y="108" width="344" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fun fact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3C-md-CVh">
-                                        <rect key="frame" x="0.0" y="0.0" width="66" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fun fact" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3C-md-CVh">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="lRs-KT-V83"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-Vg-PcN">
-                                        <rect key="frame" x="127" y="0.0" width="116" height="40"/>
+                                        <rect key="frame" x="138" y="0.0" width="108" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GNt-TX-V0c"/>
                                         </constraints>
@@ -178,7 +181,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="pjx-Hg-eB2"/>
                     <connections>
-                        <outlet property="funFactLabel" destination="q3C-md-CVh" id="DVU-Vh-aV7"/>
+                        <outlet property="funFactLabel" destination="q3C-md-CVh" id="qyy-LI-Dhx"/>
                         <outlet property="quizListTableView" destination="ixb-l1-cGe" id="tn7-vK-qnP"/>
                     </connections>
                 </viewController>

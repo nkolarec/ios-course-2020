@@ -82,11 +82,27 @@ extension QuizListViewController {
                 if result != nil {
                     self.quizzes = result!
                     self.quizListTableView.reloadData()
+                    self.funFactLabel.text = "NBA: " + self._countNBA()
                 } else {
                     self._showAlert(title: "Loading Error", message: "Failed to load quizzes.")
                 }
             }
         }
+    }
+    
+    private func _countNBA() -> String {
+        var counter = 0
+        for quiz in quizzes {
+            counter += quiz.title.components(separatedBy: "NBA").count - 1
+            counter += quiz.description.components(separatedBy: "NBA").count - 1
+            for question in quiz.questions{
+                counter += question.question.components(separatedBy: "NBA").count - 1
+                for answer in question.answers{
+                    counter += answer.components(separatedBy: "NBA").count - 1
+                }
+            }
+        }
+        return String(counter)
     }
 }
 
