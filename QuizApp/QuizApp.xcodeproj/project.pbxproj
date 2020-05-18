@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52910017247085260071A199 /* QuestionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52910016247085260071A199 /* QuestionViewCell.swift */; };
 		52B6E979246563CA00FFAABE /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6E978246563CA00FFAABE /* Quiz.swift */; };
 		52B6E97B2465A48A00FFAABE /* QuizTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6E97A2465A48A00FFAABE /* QuizTableViewCell.swift */; };
 		52B6E97F2465ABBB00FFAABE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6E97E2465ABBB00FFAABE /* Question.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52910016247085260071A199 /* QuestionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewCell.swift; sourceTree = "<group>"; };
 		52B6E978246563CA00FFAABE /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		52B6E97A2465A48A00FFAABE /* QuizTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewCell.swift; sourceTree = "<group>"; };
 		52B6E97E2465ABBB00FFAABE /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				52FDAF032461BFFE00F7C5F2 /* Quiz.storyboard */,
 				52FDAF052461C02B00F7C5F2 /* QuizViewController.swift */,
+				52910016247085260071A199 /* QuestionViewCell.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52EA18BC2464106E00653A8C /* UserService.swift in Sources */,
+				52910017247085260071A199 /* QuestionViewCell.swift in Sources */,
 				52C6E7B724606CD700B06D6A /* LoginViewController.swift in Sources */,
 				52D0C1EF2466B4CC00AD8928 /* QuizList.swift in Sources */,
 				52C6E7BF24609FDA00B06D6A /* QuizListViewController.swift in Sources */,

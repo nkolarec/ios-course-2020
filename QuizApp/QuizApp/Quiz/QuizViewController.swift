@@ -12,17 +12,20 @@ final class QuizViewController: UIViewController {
     
     //MARK: - Properties
     var quiz: Quiz!
+    var questions: [Question] = []
     
     //MARK: - Private UI
     @IBOutlet private weak var quizTitle: UILabel!
     @IBOutlet private weak var quizImage: UIImageView!
     @IBOutlet private weak var hiddenImageView: UIView!
+    @IBOutlet weak var questionsView: UICollectionView!
     
     //MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         quizTitle.text = quiz?.title
         _loadImage(url: quiz?.imageURL)
+        _setupCollectionView()
         
     }
     
@@ -31,6 +34,7 @@ final class QuizViewController: UIViewController {
     }
 }
 
+//MARK: - Load image session
 extension QuizViewController {
     private func _loadImage(url: URL?) {
         if url != nil {
@@ -46,4 +50,31 @@ extension QuizViewController {
             }
         }
     }
+}
+
+//MARK: - UI Collection View
+extension QuizViewController {
+    private func _setupCollectionView() {
+        questionsView.delegate = self
+        questionsView.dataSource = self
+        questions = quiz.questions
+    }
+}
+extension QuizViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let question = questions[indexPath.row]
+        print("Selected question: \(question)")
+    }
+}
+extension QuizViewController: UICollectionViewDataSource {
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return questions.count
+        }
+        func collectionView(_ tableView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            print("CURRENT INDEX PATH BEING CONFIGURED: \(indexPath)")
+            let cell = questionsView.dequeueReusableCell(withReuseIdentifier: String(describing: QuestionViewCell.self), for: indexPath) as! QuestionViewCell
+            cell.configure(question: questions[indexPath.row])
+            return cell
+        }
 }

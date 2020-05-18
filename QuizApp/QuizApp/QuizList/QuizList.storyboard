@@ -19,6 +19,32 @@
                                 <rect key="frame" x="30" y="156" width="354" height="706"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="GvZ-ic-kQn">
+                                    <rect key="frame" x="0.0" y="176" width="354" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2H-b5-gy6">
+                                            <rect key="frame" x="105" y="6" width="144" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="xWZ-4p-Ivo"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                            <state key="normal" title="Log out" image="power" catalog="system">
+                                                <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="logout:" destination="ORK-WA-iXf" eventType="touchUpInside" id="b9n-Tg-ii8"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="L2H-b5-gy6" secondAttribute="trailing" constant="105" id="1B6-wV-ut5"/>
+                                        <constraint firstAttribute="bottom" secondItem="L2H-b5-gy6" secondAttribute="bottom" constant="6" id="TSu-zF-aEK"/>
+                                        <constraint firstItem="L2H-b5-gy6" firstAttribute="top" secondItem="GvZ-ic-kQn" secondAttribute="top" constant="6" id="fxb-g4-nye"/>
+                                        <constraint firstItem="L2H-b5-gy6" firstAttribute="leading" secondItem="GvZ-ic-kQn" secondAttribute="leading" constant="105" id="kbW-ar-Ugw"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="QuizTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizTableViewCell" rowHeight="120" id="L94-wq-esT" customClass="QuizTableViewCell" customModule="QuizApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="354" height="120"/>
@@ -126,7 +152,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-gf-ZJw">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="190" translatesAutoresizingMaskIntoConstraints="NO" id="pgg-gf-ZJw">
                                 <rect key="frame" x="40" y="108" width="344" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fun fact" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3C-md-CVh">
@@ -139,30 +165,17 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-Vg-PcN">
-                                        <rect key="frame" x="138" y="0.0" width="108" height="40"/>
+                                        <rect key="frame" x="270" y="0.0" width="74" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GNt-TX-V0c"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Load">
+                                        <state key="normal" title="Load" image="square.and.arrow.down.fill" catalog="system">
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="load:" destination="ORK-WA-iXf" eventType="touchUpInside" id="BP7-m5-5US"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2H-b5-gy6">
-                                        <rect key="frame" x="304" y="0.0" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="xWZ-4p-Ivo"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Log Out" image="power" catalog="system">
-                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logout:" destination="ORK-WA-iXf" eventType="touchUpInside" id="b9n-Tg-ii8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -210,5 +223,6 @@
     </scenes>
     <resources>
         <image name="power" catalog="system" width="128" height="124"/>
+        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
     </resources>
 </document>

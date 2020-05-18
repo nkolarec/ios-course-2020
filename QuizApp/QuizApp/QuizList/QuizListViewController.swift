@@ -23,7 +23,7 @@ final class QuizListViewController: UIViewController {
     //MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        _setupTableView()
     }
     
     //MARK: - Actions
@@ -39,7 +39,16 @@ final class QuizListViewController: UIViewController {
     }
 }
 
-// MARK: - Quiz list table view
+// MARK: - UI Table View
+extension QuizListViewController {
+    private func _setupTableView() {
+        quizListTableView.estimatedRowHeight = 51
+        quizListTableView.rowHeight = UITableView.automaticDimension
+        quizListTableView.separatorStyle = .none
+        quizListTableView.delegate = self
+        quizListTableView.dataSource = self
+    }
+}
 extension QuizListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         quizListTableView.deselectRow(at: indexPath, animated: true)
@@ -48,28 +57,15 @@ extension QuizListViewController: UITableViewDelegate {
         _switchScreenQuiz(quiz: quiz)
     }
 }
-
 extension QuizListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return quizzes.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("CURRENT INDEX PATH BEING CONFIGURED: \(indexPath)")
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuizTableViewCell.self), for: indexPath) as! QuizTableViewCell
         cell.configure(quiz: quizzes[indexPath.row])
         return cell
-    }
-}
-
-extension QuizListViewController {
-    private func setupTableView() {
-        quizListTableView.estimatedRowHeight = 51
-        quizListTableView.rowHeight = UITableView.automaticDimension
-        quizListTableView.tableFooterView = UIView()
-        quizListTableView.separatorStyle = .none
-        quizListTableView.delegate = self
-        quizListTableView.dataSource = self
     }
 }
 
@@ -93,8 +89,6 @@ extension QuizListViewController {
     private func _countNBA() -> String {
         var counter = 0
         for quiz in quizzes {
-            counter += quiz.title.components(separatedBy: "NBA").count - 1
-            counter += quiz.description.components(separatedBy: "NBA").count - 1
             for question in quiz.questions{
                 counter += question.question.components(separatedBy: "NBA").count - 1
                 for answer in question.answers{
