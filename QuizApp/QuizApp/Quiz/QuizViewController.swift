@@ -19,6 +19,7 @@ final class QuizViewController: UIViewController {
     @IBOutlet private weak var quizImage: UIImageView!
     @IBOutlet private weak var hiddenImageView: UIView!
     @IBOutlet weak var questionsView: UICollectionView!
+    @IBOutlet weak var startQuizButton: UIButton!
     
     //MARK: - Lifecycle methods
     override func viewDidLoad() {
@@ -31,7 +32,9 @@ final class QuizViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func startQuiz(_ sender: UIButton) {
-    }
+        questionsView.isHidden = false
+        startQuizButton.isHidden = true
+    } 
 }
 
 //MARK: - Load image session
@@ -58,15 +61,11 @@ extension QuizViewController {
         questionsView.delegate = self
         questionsView.dataSource = self
         questions = quiz.questions
+        questionsView.allowsSelection = false
+        questionsView.isHidden = true
     }
 }
-extension QuizViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        let question = questions[indexPath.row]
-        print("Selected question: \(question)")
-    }
-}
+extension QuizViewController: UICollectionViewDelegate {}
 extension QuizViewController: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return questions.count

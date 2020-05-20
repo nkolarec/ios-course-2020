@@ -204,6 +204,7 @@
                         <outlet property="questionsView" destination="zgd-5S-fqa" id="PaC-sU-LPc"/>
                         <outlet property="quizImage" destination="yY1-iI-yfJ" id="5Eo-kQ-CzF"/>
                         <outlet property="quizTitle" destination="T2Z-cM-GVw" id="Hba-K1-olS"/>
+                        <outlet property="startQuizButton" destination="aLh-ew-eU7" id="Zxy-5I-fav"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqs-rt-kmD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

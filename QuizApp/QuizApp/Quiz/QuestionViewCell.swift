@@ -31,5 +31,7 @@ extension QuestionViewCell {
         answerButton2.setTitle(question.answers[1], for: .normal)
         answerButton3.setTitle(question.answers[2], for: .normal)
         answerButton4.setTitle(question.answers[3], for: .normal)
+        
+        
     }
 }
