@@ -45,16 +45,6 @@ extension QuizTableViewCell {
         }
         stars.removeLast()
         quizLevel.text = stars
-        switch(quiz.category) {
-        case "SPORTS":
-            self.backgroundColor = UIColor.lightGray
-            quizDescription.backgroundColor = UIColor.lightGray
-            break
-        default:
-            self.backgroundColor = UIColor.gray
-            quizDescription.backgroundColor = UIColor.gray
-            break
-        }
         _loadImage(url: quiz.imageURL)
     }
 }

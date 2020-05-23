@@ -29,8 +29,10 @@ final class LoginViewController: UIViewController {
         if _isUserLoggedIn() {
             _switchScreen()
         }
-        loginButton.layer.cornerRadius = 5
-        _animate()
+        else {
+            loginButton.layer.cornerRadius = 5
+            _animate()
+        }
     }
     
     //MARK: - Actions
