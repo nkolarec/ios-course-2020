@@ -43,7 +43,6 @@ final class QuizService {
         }
         task.resume()
     }
-    
     func loadImage(url: URL, completion: @escaping ((UIImage?) -> Void)) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -67,4 +66,40 @@ final class QuizService {
         }
         task.resume()
     }
+    func postResult(result: Result, token: String, completion: @escaping ((String?) -> Void)) {
+        
+        guard let url = URL(string: "https://iosquiz.herokuapp.com/api/result")
+        else { return completion(nil) }
+        let parameters = [
+            "quiz_id": result.quiz_id,
+            "user_id": result.user_id,
+            "time": result.time,
+            "no_of_correct": result.no_of_correct] as [String : Any]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(token, forHTTPHeaderField: "Authorization")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        else { return completion(nil) }
+        request.httpBody = httpBody
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let response = response as? HTTPURLResponse,
+                error == nil else {
+                // check for fundamental networking error
+                print("error", error ?? "Unknown error")
+                return completion(nil)
+            }
+            guard (200 ... 299) ~= response.statusCode else {
+                // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                return completion(nil)
+            }
+            return completion("\(response.statusCode) OK - success")
+        }
+        task.resume()
+    }
 }
+

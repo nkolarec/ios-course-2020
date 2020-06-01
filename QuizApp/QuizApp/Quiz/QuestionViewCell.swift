@@ -8,7 +8,11 @@
 
 import UIKit
 
-class QuestionViewCell: UICollectionViewCell {
+final class QuestionViewCell: UICollectionViewCell {
+    
+    //MARK: - Delegate
+    weak var delegate: QuizViewDelegate?
+    var indexPath: IndexPath!
 
     //MARK: - Private UI
     @IBOutlet weak var questionLabel: UILabel!
@@ -21,6 +25,12 @@ class QuestionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    //MARK: - Actions
+    @IBAction func _nextAnswer(_ sender: UIButton) {
+        self.delegate?._answerPressed(button: sender, indexPath: indexPath)
+    }
+
 }
 
 //MARK: - Configure cell
@@ -32,6 +42,9 @@ extension QuestionViewCell {
         answerButton3.setTitle(question.answers[2], for: .normal)
         answerButton4.setTitle(question.answers[3], for: .normal)
         
-        
+        answerButton1.backgroundColor = UIColor.systemBackground
+        answerButton2.backgroundColor = UIColor.systemBackground
+        answerButton3.backgroundColor = UIColor.systemBackground
+        answerButton4.backgroundColor = UIColor.systemBackground
     }
 }

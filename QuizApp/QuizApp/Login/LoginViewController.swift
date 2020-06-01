@@ -86,16 +86,6 @@ extension LoginViewController {
     }
 }
 
-//MARK: - Custom alert dialog
-extension UIViewController {
-    func _showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-}
-
 //MARK: - Animation
 extension LoginViewController {
     private func _animate() {
@@ -115,3 +105,14 @@ extension LoginViewController {
                 self.loginButton.center = CGPoint(x: 0, y: 189)
             }), completion: nil)}
 }
+
+//MARK: - Custom alert dialog
+extension UIViewController {
+    func _showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+}
+
