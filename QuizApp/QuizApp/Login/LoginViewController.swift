@@ -14,6 +14,7 @@ final class LoginViewController: UIViewController {
     private let userDefaults = UserDefaults.standard
     private let token = "token"
     private let user_id = "user_id"
+    private let username = "username"
     private var user : User!
     
     
@@ -65,6 +66,7 @@ extension LoginViewController {
                     self.user = result
                     self.userDefaults.set(self.user.user_id, forKey: self.user_id)
                     self.userDefaults.set(self.user.token, forKey: self.token)
+                    self.userDefaults.set(self.username, forKey: self.username)
                     self._switchScreen()
                 } else {
                     self._showAlert(title: "Login Error", message: "Failed to login.")
@@ -78,10 +80,8 @@ extension LoginViewController {
 extension LoginViewController {
     private func _switchScreen() {
         let bundle = Bundle.main
-        let storyboard = UIStoryboard(name: "QuizList", bundle: bundle)
-        let viewController = storyboard.instantiateViewController(
-            withIdentifier: "QuizListViewController"
-        ) as! QuizListViewController
+        let storyboard = UIStoryboard(name: "Home", bundle: bundle)
+        let viewController = storyboard.instantiateViewController(identifier: "Home")
         self.navigationController?.setViewControllers([viewController],animated:true)
     }
 }

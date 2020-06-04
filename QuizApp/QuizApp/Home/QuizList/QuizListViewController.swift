@@ -32,13 +32,6 @@ final class QuizListViewController: UIViewController {
     @IBAction func load(_ sender: UIButton) {
         _loadQuizList()
     }
-    
-    @IBAction func logout(_ sender: UIButton) {
-        userDefaults.removeObject(forKey: user_id)
-        userDefaults.removeObject(forKey: token)
-        print("User has been logged out.")
-        _switchScreenLogin()
-    }
 }
 
 // MARK: - UI Table View
@@ -136,14 +129,6 @@ extension QuizListViewController {
 
 //MARK: - Navigation
 extension QuizListViewController {
-    private func _switchScreenLogin() {
-        let bundle = Bundle.main
-        let storyboard = UIStoryboard(name: "Login", bundle: bundle)
-        let viewController = storyboard.instantiateViewController(
-            withIdentifier: "LoginViewController"
-        ) as! LoginViewController
-        self.navigationController?.setViewControllers([viewController],animated:true)
-    }
     private func _switchScreenQuiz(quiz: Quiz) {
         let bundle = Bundle.main
         let storyboard = UIStoryboard(name: "Quiz", bundle: bundle)
