@@ -69,12 +69,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52B4453724893C1200065C9D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		52BC4432248673B600980186 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				52C6E7BC24609FB500B06D6A /* Home.storyboard */,
 				52C6E7B324606CAB00B06D6A /* QuizList */,
-				52BC4434248673F000980186 /* Leaderboard */,
+				52B4453724893C1200065C9D /* Search */,
 				52BC4433248673E600980186 /* Settings */,
 			);
 			path = Home;
@@ -118,6 +125,7 @@
 				52C6E7B224606CA400B06D6A /* Login */,
 				52BC4432248673B600980186 /* Home */,
 				52FDAF022461BF5800F7C5F2 /* Quiz */,
+				52BC4434248673F000980186 /* Leaderboard */,
 				52EA18B32464007A00653A8C /* Model */,
 				52EA18B42464008800653A8C /* Services */,
 				52C6E7B124606C9700B06D6A /* Support Files */,
