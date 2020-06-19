@@ -111,6 +111,7 @@ extension QuizListViewController {
         return String(counter)
     }
     private func _makeSectionsByCategory() {
+        mapByCategory.removeAll()
         for quiz in quizzes {
             print(quiz.category)
             if (self.mapByCategory[quiz.category] == nil) {

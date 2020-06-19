@@ -12,9 +12,9 @@ final class LoginViewController: UIViewController {
     
     //MARK: - Properties
     private let userDefaults = UserDefaults.standard
-    private let token = "token"
+    private let tokenKey = "token"
     private let user_id = "user_id"
-    private let username = "username"
+    private let usernameKey = "username"
     private var user : User!
     
     
@@ -54,7 +54,7 @@ final class LoginViewController: UIViewController {
 //MARK: - Login user session
 extension LoginViewController {
     private func _isUserLoggedIn() -> Bool {
-        let tokenExists = userDefaults.object(forKey: token) as? String
+        let tokenExists = userDefaults.object(forKey: tokenKey) as? String
         return  tokenExists == nil ? false : true
     }
     
@@ -65,8 +65,8 @@ extension LoginViewController {
                 if result != nil {
                     self.user = result
                     self.userDefaults.set(self.user.user_id, forKey: self.user_id)
-                    self.userDefaults.set(self.user.token, forKey: self.token)
-                    self.userDefaults.set(self.username, forKey: self.username)
+                    self.userDefaults.set(self.user.token, forKey: self.tokenKey)
+                    self.userDefaults.set(username, forKey: self.usernameKey)
                     self._switchScreen()
                 } else {
                     self._showAlert(title: "Login Error", message: "Failed to login.")
