@@ -9,6 +9,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
     //MARK: - Properties
     private let token = "token"
     private let user_id = "user_id"
@@ -45,6 +46,6 @@ extension SettingsViewController {
         let viewController = storyboard.instantiateViewController(
             withIdentifier: "LoginViewController"
         ) as! LoginViewController
-        self.navigationController?.setViewControllers([viewController],animated:true)
+        navigationController?.setViewControllers([viewController], animated:true)
     }
 }

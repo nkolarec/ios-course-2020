@@ -16,8 +16,7 @@ final class LoginViewController: UIViewController {
     private let user_id = "user_id"
     private let usernameKey = "username"
     private var user : User!
-    
-    
+
     //MARK: - Private UI
     @IBOutlet weak var quizTitleLabel: UILabel!
     @IBOutlet private weak var usernameTextField: UITextField!
@@ -28,7 +27,7 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if _isUserLoggedIn() {
-            _switchScreen()
+            _switchScreenHome()
         }
         else {
             loginButton.layer.cornerRadius = 5
@@ -67,7 +66,7 @@ extension LoginViewController {
                     self.userDefaults.set(self.user.user_id, forKey: self.user_id)
                     self.userDefaults.set(self.user.token, forKey: self.tokenKey)
                     self.userDefaults.set(username, forKey: self.usernameKey)
-                    self._switchScreen()
+                    self._switchScreenHome()
                 } else {
                     self._showAlert(title: "Login Error", message: "Failed to login.")
                 }
@@ -78,7 +77,7 @@ extension LoginViewController {
 
 //MARK: - Navigation
 extension LoginViewController {
-    private func _switchScreen() {
+    private func _switchScreenHome() {
         let bundle = Bundle.main
         let storyboard = UIStoryboard(name: "Home", bundle: bundle)
         let viewController = storyboard.instantiateViewController(identifier: "Home")

@@ -15,11 +15,11 @@ final class QuestionViewCell: UICollectionViewCell {
     var indexPath: IndexPath!
 
     //MARK: - Private UI
-    @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var answerButton1: UIButton!
-    @IBOutlet weak var answerButton2: UIButton!
-    @IBOutlet weak var answerButton3: UIButton!
-    @IBOutlet weak var answerButton4: UIButton!
+    @IBOutlet private weak var questionLabel: UILabel!
+    @IBOutlet private weak var answerButton1: UIButton!
+    @IBOutlet private weak var answerButton2: UIButton!
+    @IBOutlet private weak var answerButton3: UIButton!
+    @IBOutlet private weak var answerButton4: UIButton!
     
     //MARK: - Lifecycle methods
     override func awakeFromNib() {

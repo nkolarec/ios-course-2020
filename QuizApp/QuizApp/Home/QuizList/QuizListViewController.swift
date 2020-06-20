@@ -27,6 +27,10 @@ final class QuizListViewController: UIViewController {
         super.viewDidLoad()
         _setupTableView()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     
     //MARK: - Actions
     @IBAction func load(_ sender: UIButton) {
@@ -81,7 +85,7 @@ extension QuizListViewController: UITableViewDataSource {
     }
 }
 
-//MARK: - Load quizzes session
+//MARK: - GET quizzes session
 extension QuizListViewController {
     private func _loadQuizList() {
         let quizService = QuizService()

@@ -24,9 +24,9 @@ final class QuizViewController: UIViewController, QuizViewDelegate {
     @IBOutlet private weak var quizTitle: UILabel!
     @IBOutlet private weak var quizImage: UIImageView!
     @IBOutlet private weak var hiddenImageView: UIView!
-    @IBOutlet weak var questionsView: UICollectionView!
-    @IBOutlet weak var startQuizButton: UIButton!
-    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet private weak var questionsView: UICollectionView!
+    @IBOutlet private weak var startQuizButton: UIButton!
+    @IBOutlet private weak var timerLabel: UILabel!
     
     //MARK: - Lifecycle methods
     override func viewDidLoad() {
@@ -34,10 +34,25 @@ final class QuizViewController: UIViewController, QuizViewDelegate {
         quizTitle.text = quiz?.title
         _loadImage(url: quiz?.imageURL)
         _setupCollectionView()
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "list.bullet"),
+            style: .plain,
+            target: self,
+            action: #selector(viewLeaderboard))
+        navigationController?.navigationBar.isHidden = false
     }
     
     //MARK: - Actions
+    @objc func viewLeaderboard() {
+        let bundle = Bundle.main
+        let storyboard = UIStoryboard(name: "Leaderboard", bundle: bundle)
+        let viewController = storyboard.instantiateViewController(identifier: "LeaderboardViewController") as! LeaderboardViewController
+        viewController.quiz_id = quiz.quiz_id
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     @IBAction func startQuiz(_ sender: UIButton) {
         questionsView.isHidden = false
         startQuizButton.isHidden = true
@@ -74,7 +89,7 @@ final class QuizViewController: UIViewController, QuizViewDelegate {
     }
 }
 
-//MARK: - Load image session
+//MARK: - GET image session
 extension QuizViewController {
     private func _loadImage(url: URL?) {
         if url != nil {
@@ -116,7 +131,7 @@ extension QuizViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
 }
 
-//MARK: - UI Collection View
+//MARK: - POST results session
 extension QuizViewController {
     func _postResults() {
         let quizService = QuizService()
@@ -130,7 +145,7 @@ extension QuizViewController {
             DispatchQueue.main.async {
                 if result != nil {
                     print(result!)
-                   self.navigationController?.popViewController(animated: true)
+                    self.navigationController?.popViewController(animated: true)
                 } else {
                     self._showAlertResults(title: "Sending results", message: "Error sending results. Send again?")
                 }
@@ -138,6 +153,8 @@ extension QuizViewController {
         }
     }
 }
+
+//MARK: - Custom alert dialog
 extension QuizViewController {
     func _showAlertResults(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

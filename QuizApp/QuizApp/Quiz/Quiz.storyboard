@@ -225,6 +225,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bcK-zp-KAg"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vg9-VG-ykj"/>
                     <connections>
                         <outlet property="hiddenImageView" destination="tJu-qd-KTK" id="1rx-7z-QeV"/>
                         <outlet property="questionsView" destination="zgd-5S-fqa" id="PaC-sU-LPc"/>
@@ -236,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqs-rt-kmD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="224.63768115942031" y="166.74107142857142"/>
+            <point key="canvasLocation" x="1134.7826086956522" y="166.74107142857142"/>
         </scene>
     </scenes>
     <resources>
