@@ -16,6 +16,7 @@ final class QuizTableViewCell: UITableViewCell {
     @IBOutlet private weak var hideQuizImage: UIView!
     @IBOutlet private weak var quizDescription: UITextView!
     @IBOutlet private weak var quizLevel: UILabel!
+    @IBOutlet private weak var separatorView: UIView!
     
     //MARK: - Lifecycle methods
     override func awakeFromNib() {
@@ -36,7 +37,7 @@ final class QuizTableViewCell: UITableViewCell {
 
 //MARK: - Configure cell
 extension QuizTableViewCell {
-    func configure(quiz: Quiz) {
+    func configure(quiz: Quiz, last: Bool) {
         quizTitle.text = quiz.title
         quizDescription.text = quiz.description
         var stars = ""
@@ -46,6 +47,7 @@ extension QuizTableViewCell {
         stars.removeLast()
         quizLevel.text = stars
         _loadImage(url: quiz.imageURL)
+        if last { separatorView.backgroundColor = .systemBackground }
     }
 }
 

@@ -26,6 +26,8 @@ final class LeaderboardViewController: UIViewController {
         _loadLeaderboard()
     }
 }
+
+//MARK: - UI Table View
 extension LeaderboardViewController {
     private func _setupTableView() {
         leaderboardTableView.estimatedRowHeight = 51
@@ -46,6 +48,7 @@ extension LeaderboardViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
 }
+
 //MARK: - GET Leaderboard
 extension LeaderboardViewController {
     func _loadLeaderboard() {

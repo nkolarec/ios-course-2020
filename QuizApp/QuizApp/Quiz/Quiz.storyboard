@@ -66,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2Z-cM-GVw">
-                                        <rect key="frame" x="130" y="40" width="113.5" height="36"/>
+                                        <rect key="frame" x="20" y="40" width="333" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -78,6 +78,7 @@
                                     <constraint firstItem="yY1-iI-yfJ" firstAttribute="trailing" secondItem="tJu-qd-KTK" secondAttribute="trailing" id="ADV-Cb-9Jw"/>
                                     <constraint firstAttribute="trailing" secondItem="fh2-gk-5Cx" secondAttribute="trailing" constant="56" id="EbA-QE-9P9"/>
                                     <constraint firstAttribute="trailing" secondItem="sOJ-kO-n6I" secondAttribute="trailing" constant="114.5" id="HED-4Q-Yp6"/>
+                                    <constraint firstAttribute="trailing" secondItem="T2Z-cM-GVw" secondAttribute="trailing" constant="20" id="HZH-Gp-adt"/>
                                     <constraint firstAttribute="trailing" secondItem="aLh-ew-eU7" secondAttribute="trailing" constant="114.5" id="JV3-fK-3Vd"/>
                                     <constraint firstItem="fh2-gk-5Cx" firstAttribute="top" secondItem="pV9-Gw-n6Y" secondAttribute="bottom" constant="-1" id="KfA-D5-Aw3"/>
                                     <constraint firstItem="aLh-ew-eU7" firstAttribute="top" secondItem="tJu-qd-KTK" secondAttribute="bottom" constant="20" id="Nxu-fv-125"/>
@@ -86,6 +87,7 @@
                                     <constraint firstItem="aLh-ew-eU7" firstAttribute="leading" secondItem="pV9-Gw-n6Y" secondAttribute="leading" constant="114.5" id="XBT-pQ-EAr"/>
                                     <constraint firstItem="fh2-gk-5Cx" firstAttribute="top" secondItem="sOJ-kO-n6I" secondAttribute="bottom" constant="7" id="Y1Q-ZR-I7z"/>
                                     <constraint firstItem="yY1-iI-yfJ" firstAttribute="leading" secondItem="pV9-Gw-n6Y" secondAttribute="leading" constant="78" id="bEX-Fe-KoP"/>
+                                    <constraint firstItem="T2Z-cM-GVw" firstAttribute="leading" secondItem="pV9-Gw-n6Y" secondAttribute="leading" constant="20" id="cR6-oA-Xoc"/>
                                     <constraint firstItem="tJu-qd-KTK" firstAttribute="leading" secondItem="pV9-Gw-n6Y" secondAttribute="leading" constant="78" id="car-4j-6jd"/>
                                     <constraint firstItem="yY1-iI-yfJ" firstAttribute="leading" secondItem="tJu-qd-KTK" secondAttribute="leading" id="h26-s3-nn1"/>
                                     <constraint firstItem="sOJ-kO-n6I" firstAttribute="leading" secondItem="pV9-Gw-n6Y" secondAttribute="leading" constant="114.5" id="i9u-nU-a4x"/>

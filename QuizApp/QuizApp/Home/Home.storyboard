@@ -121,6 +121,7 @@
                                             <outlet property="quizImage" destination="Vg9-oz-3Xu" id="fEx-Kb-oDd"/>
                                             <outlet property="quizLevel" destination="pIJ-yo-5jD" id="9dV-SH-n9E"/>
                                             <outlet property="quizTitle" destination="gKj-cI-QA7" id="BCd-jF-MSo"/>
+                                            <outlet property="separatorView" destination="Vvn-BV-kcv" id="swZ-CL-hv7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

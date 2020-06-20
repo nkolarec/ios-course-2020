@@ -66,7 +66,7 @@ extension QuizListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("CURRENT INDEX PATH BEING CONFIGURED: \(indexPath)")
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuizTableViewCell.self), for: indexPath) as! QuizTableViewCell
-        cell.configure(quiz: mapByCategory[categories[indexPath.section]]![indexPath.row])
+        cell.configure(quiz: mapByCategory[categories[indexPath.section]]![indexPath.row], last: mapByCategory[categories[indexPath.section]]?.count == indexPath.row + 1)
         return cell
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
