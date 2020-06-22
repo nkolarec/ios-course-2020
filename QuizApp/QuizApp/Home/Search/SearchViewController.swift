@@ -10,10 +10,13 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    var quizzes: [Quiz] = []
+    //MARK: - Properties
+    private var quizzes: [Quiz] = []
     private var searchData: [Quiz] = []
+    
+    //MARK: Private UI
     @IBOutlet private weak var quizListTableView: UITableView!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet private weak var searchTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
