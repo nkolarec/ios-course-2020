@@ -95,7 +95,9 @@ extension QuizViewController {
         if url != nil {
             let quizService = QuizService()
             quizService.loadImage(url: url!) { (result) in
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self
+                    else { return }
                     if result != nil {
                         self.quizImage.image = result!
                         self.quizImage.isHidden = false
@@ -142,7 +144,9 @@ extension QuizViewController {
             no_of_correct: no_of_correct)
         print(newResult)
         quizService.postResult(result: newResult, token: userDefaults.string(forKey: token)!) { (result) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self
+                else { return }
                 if result != nil {
                     print(result!)
                     self.navigationController?.popViewController(animated: true)

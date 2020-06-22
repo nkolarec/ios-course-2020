@@ -56,7 +56,9 @@ extension QuizTableViewCell {
     private func _loadImage(url: URL) {
         let quizService = QuizService()
         quizService.loadImage(url: url) { (result) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self
+                else { return }
                 if result != nil {
                     self.quizImage.image = result!
                     self.quizImage.isHidden = false

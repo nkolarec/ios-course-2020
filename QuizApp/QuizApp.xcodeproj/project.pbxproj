@@ -10,6 +10,7 @@
 		526EC79D2479CA3C000D655D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EC79C2479CA3C000D655D /* Result.swift */; };
 		526EC79F2479D1F1000D655D /* QuizViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EC79E2479D1F1000D655D /* QuizViewDelegate.swift */; };
 		52910017247085260071A199 /* QuestionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52910016247085260071A199 /* QuestionViewCell.swift */; };
+		529964AA24A14A38003279C0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529964A924A14A38003279C0 /* SearchViewController.swift */; };
 		52B5089B249E40B000A6EB14 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5089A249E40B000A6EB14 /* ScoreTableViewCell.swift */; };
 		52B6E979246563CA00FFAABE /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6E978246563CA00FFAABE /* Quiz.swift */; };
 		52B6E97B2465A48A00FFAABE /* QuizTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B6E97A2465A48A00FFAABE /* QuizTableViewCell.swift */; };
@@ -39,6 +40,7 @@
 		526EC79C2479CA3C000D655D /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		526EC79E2479D1F1000D655D /* QuizViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewDelegate.swift; sourceTree = "<group>"; };
 		52910016247085260071A199 /* QuestionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewCell.swift; sourceTree = "<group>"; };
+		529964A924A14A38003279C0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		52B5089A249E40B000A6EB14 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
 		52B6E978246563CA00FFAABE /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		52B6E97A2465A48A00FFAABE /* QuizTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		52B4453724893C1200065C9D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				529964A924A14A38003279C0 /* SearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				52C6E77E24606BE300B06D6A /* AppDelegate.swift in Sources */,
 				52C6E78024606BE300B06D6A /* SceneDelegate.swift in Sources */,
 				52E37BD4249D3F72000F2513 /* Score.swift in Sources */,
+				529964AA24A14A38003279C0 /* SearchViewController.swift in Sources */,
 				52BC44382486749000980186 /* SettingsViewController.swift in Sources */,
 				52BC44362486747D00980186 /* LeaderboardViewController.swift in Sources */,
 				52B6E979246563CA00FFAABE /* Quiz.swift in Sources */,

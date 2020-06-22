@@ -23,6 +23,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
     
+
     //MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,9 @@ extension LoginViewController {
     private func _loginUser(username: String, password: String) {
         let userService = UserService()
         userService.loginUser(username: username, password: password) { (result) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self
+                else { return }
                 if result != nil {
                     self.user = result
                     self.userDefaults.set(self.user.user_id, forKey: self.user_id)

@@ -18,7 +18,6 @@ final class ScoreTableViewCell: UITableViewCell {
     //MARK: - Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 }
 //MARK: - Configure cell

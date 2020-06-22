@@ -11,10 +11,12 @@ import Foundation
 struct Score : Codable {
     let score : String
     let username : String
+    
     enum CodingKeys: String, CodingKey {
         case score
         case username
     }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.score = try values.decodeIfPresent(String.self, forKey: .score)

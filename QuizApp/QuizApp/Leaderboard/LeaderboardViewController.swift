@@ -33,6 +33,7 @@ extension LeaderboardViewController {
         leaderboardTableView.estimatedRowHeight = 51
         leaderboardTableView.rowHeight = UITableView.automaticDimension
         leaderboardTableView.separatorStyle = .none
+        leaderboardTableView.allowsSelection = false
         leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
     }
@@ -56,7 +57,9 @@ extension LeaderboardViewController {
         else { return }
         let leaderboardService = LeaderboardService()
         leaderboardService.loadLeaderboard(quiz_id: quiz_id, token: token) { (result) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self
+                else { return }
                 if result != nil {
                     self.leaderboard = result!
                     self.leaderboard.sort{ (score1, score2) -> Bool in

@@ -90,7 +90,9 @@ extension QuizListViewController {
     private func _loadQuizList() {
         let quizService = QuizService()
         quizService.loadQuizList() { (result) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+            guard let self = self
+            else { return }
                 if result != nil {
                     self.quizzes = result!
                     self._makeSectionsByCategory()
@@ -133,8 +135,8 @@ extension QuizListViewController {
 }
 
 //MARK: - Navigation
-extension QuizListViewController {
-    private func _switchScreenQuiz(quiz: Quiz) {
+extension UIViewController {
+    func _switchScreenQuiz(quiz: Quiz) {
         let bundle = Bundle.main
         let storyboard = UIStoryboard(name: "Quiz", bundle: bundle)
         let viewController = storyboard.instantiateViewController(
